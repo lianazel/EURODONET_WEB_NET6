@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "PageEnConstruction";
+}
+
+<h1>Page en Construction</h1>
+
+<br />
+<br />
+
+<head>
+    @{
+        // > On déclare ici le fichier style.css.
+        //   Le symbole "~" signifie que l'on démarre sur le répertoire...
+        //   ..."wwwwroot" <
+    }
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!--Titre de l'onglet de la page -->
+    <title>
+        Page en construction
+    </title>
+
+</head>
+
+   @{
+        // > Redirection vers une autre action d'un autre controleur dans le site <
+    }
+    <p class="text-center  ElementBadgeGeant">
+        @Html.ActionLink("Accueil ", "Index", "Home")
+    </p>
+
+
+<body-page-construction>
+   
+
+</body-page-construction>

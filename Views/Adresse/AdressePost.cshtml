@@ -1,0 +1,244 @@
+﻿@model EuroDonet.Model.Adresse.ML_API_Vers_DonetAdresse
+
+
+@{
+    ViewBag.Title = "L'adresse";
+}
+
+<body>
+
+    @{
+        // *******         CSS       ***********
+        // > On utilise par défaut le fichier "site.css"  <
+    }
+
+    @{
+        // > On installe le jumbotron  <
+    }
+    <div class="jumbotron">
+        <br />
+        <h1 class="text-center">L'adresse</h1>
+        <br />
+    </div>
+
+    @{
+        // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        // !!!!   Message d'erreur si non null !!!!!
+        // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        @if (Model.MsgeErrorException != null)
+        {
+            <br />
+            //  > Message affiché si différent null <
+            <div class="editor-field ErrorMessage">
+                @Html.TextBoxFor(model => model.MsgeErrorException, new { @readonly = "readonly" })
+            </div>
+            <br />
+        }
+    }
+
+    @{
+        // > On appelle l'action "SocietePost" de type POST <
+    }
+
+    @using (Html.BeginForm("AdressePost", "Adresse", FormMethod.Post))
+    {
+
+        <br />
+        <br />
+        <fieldset>
+
+            <legend class="alert-danger text-center">Veuillez saisir les informations necessaires</legend>
+
+            @{
+                //---------------------
+                //  > Libellé de l'adresse  ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.LibelleAdresse)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.LibelleAdresse, new { id = "LibelleAdresse", name = "LibelleAdresse" })
+                <br />
+                @Html.ValidationMessageFor(model => model.LibelleAdresse)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > Adresse 1 ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.Adresse_1)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.Adresse_1, new { id = "Adresse_1", name = "Adresse_1" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Adresse_1)
+            </div>
+
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > Adresse 2 ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.Adresse_2)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.Adresse_2, new { id = "Adresse_2", name = "Adresse_2" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Adresse_2)
+            </div>
+
+            <br />
+            <br />
+
+
+            @{
+                //---------------------
+                //  > Type de la voie  ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.TypVoie)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.TypVoie, new { id = "TypVoie", name = "TypVoie" })
+                <br />
+                @Html.ValidationMessageFor(model => model.TypVoie)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > Numéro de la voie  ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.NumVoie)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.NumVoie, new { id = "NumVoie", name = "NumVoie" })
+                <br />
+                @Html.ValidationMessageFor(model => model.NumVoie)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > Code postal  ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.CodePostal)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.CodePostal, new { id = "CodePostal", name = "CodePostal" })
+                <br />
+                @Html.ValidationMessageFor(model => model.CodePostal)
+            </div>
+
+
+            <br />
+            <br />
+
+
+            @{
+                //---------------------
+                //  > Region  ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.Region)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.Region, new { id = "Region", name = "Region" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Region)
+            </div>
+
+            <br />
+            <br />
+
+            
+            @{
+                //---------------------
+                //  > Pays ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.Pays)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.Pays, new { id = "Pays", name = "Pays" })
+                <br />
+                @Html.ValidationMessageFor(model => model.Pays)
+            </div>
+
+            <br />
+            <br />
+
+
+            <p>
+                @{
+                    //  > Bouton pour soumettre le formulaire  <
+                }
+                <div class="container bg-light text-center">
+
+                    <button type="submit" class="text-center buttonValid"> Mettre à jour </button>
+
+                </div>
+            </p>
+
+
+        </fieldset>
+
+        // > Champ  "Id_Adresse" non visible ==> Contient l'ID pour effectuer la lecture AVANT Mise à jour <
+        <input type="hidden" value=@Model.Id_Adresse name="Id_Adresse" id="Id_Adresse" />
+
+    }
+
+    <div class="container bg-light text-center">
+        @{
+            // > Action du bouton "Retour à la liste des adresses  <
+            // > L'action du bouton appelle l'action "AdressesList" du contrôleur "Adresse" <
+        }
+
+        @using (Html.BeginForm("AdressesList", "Adresse", FormMethod.Get))
+        {
+            <button type="submit" class="text-center buttonList">Liste des adresses</button>
+
+        }
+
+    </div>
+
+
+</body>

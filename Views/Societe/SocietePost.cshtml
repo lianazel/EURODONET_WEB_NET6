@@ -1,0 +1,201 @@
+﻿@model EuroDonet.Model.Societe.ML_API_Vers_DonetSociete
+
+
+@{
+    ViewBag.Title = "La société";
+}
+
+
+
+
+
+
+<body>
+
+    @{
+        // *******         CSS       ***********
+        // > On utilise par défaut le fichier "site.css"  <
+    }
+
+
+
+    @{
+        // > On installe le jumbotron  <
+    }
+    <div class="jumbotron">
+        <br />
+        <h1 class="text-center">La société</h1>
+        <br />
+    </div>
+
+    @{
+        // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        // !!!!   Message d'erreur si non null !!!!!
+        // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        @if (Model.MsgeErrorException != null)
+        {
+            <br />
+            //  > Message affiché si différent null <
+            <div class="editor-field ErrorMessage">
+                @Html.TextBoxFor(model => model.MsgeErrorException, new { @readonly = "readonly" })
+            </div>
+            <br />
+        }
+    }
+
+    @{
+        // > On appelle l'action "SocietePost" de type POST <
+    }
+
+    @using (Html.BeginForm("SocietePost", "Societe", FormMethod.Post))
+    {
+
+        <br />
+        <br />
+        <fieldset>
+
+            <legend class="alert-danger text-center">Veuillez saisir les informations necessaires</legend>
+
+            @{
+                //---------------------
+                //  > Raison sociale  ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.RaisonSociale)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.RaisonSociale, new { id = "RaisonSociale", name = "RaisonSociale" })
+                <br />
+                @Html.ValidationMessageFor(model => model.RaisonSociale)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > Numéro SIREN ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.NumSiren)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.NumSiren, new { id = "NumSiren", name = "NumSiren" })
+                <br />
+                @Html.ValidationMessageFor(model => model.NumSiren)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > Capital SOCIAL ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.CapitalSocial)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.CapitalSocial, new { id = "CapitalSocial", name = "CapitalSocial" })
+                <br />
+                @Html.ValidationMessageFor(model => model.CapitalSocial)
+            </div>
+
+            <br />
+            <br />
+
+
+            @{
+                //---------------------
+                //  > Chiffre AFFAIRE ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.ChiffreAffaire)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.ChiffreAffaire, new { id = "ChiffreAffaire", name = "ChiffreAffaire" })
+                <br />
+                @Html.ValidationMessageFor(model => model.ChiffreAffaire)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                //  > NuM TVA Intracommunautaire ( Libellé et zone de zaisie ) >
+                //    ( Rappel : Ne PAS utiliser "@Html.EditorFor..." car pas compatible avec "id" et "name" )
+                //---------------------
+            }
+            <div class="editor-label text-center ElementBadge">
+                @Html.LabelFor(model => model.NumTVAIntra)
+            </div>
+
+            <div class="text-center">
+                @Html.TextBoxFor(model => model.NumTVAIntra, new { id = "NumTVAIntra", name = "NumTVAIntra" })
+                <br />
+                @Html.ValidationMessageFor(model => model.NumTVAIntra)
+            </div>
+
+            <br />
+            <br />
+
+            @{
+                //---------------------
+                // > Mis en place d'une dropdowlist : Liste des ADRESSES <
+                //---------------------
+            }
+            <div class="editor-field text-center dropdowCenter ">
+                @Html.DropDownListFor(m => m.FK_ID_Adresse, Model.AdressList, "Choisir une adresse", new { @class = "dropDownBtn"  })
+            </div>
+
+            <p>
+                @{
+                    //  > Bouton pour soumettre le formulaire  <
+                }
+                <div class="container bg-light text-center">
+
+                    <button type="submit" class="text-center buttonValid"> Mettre à jour </button>
+
+                </div>
+            </p>
+
+
+        </fieldset>
+
+        // > Champ  "Id_Societe" non visible ==> Contient l'ID pour effectuer la lecture AVANT Mise à jour <
+        <input type="hidden" value=@Model.Id_Societe name="Id_Societe" id="Id_Societe" />
+
+    }
+
+    <div class="container bg-light text-center">
+
+
+        @{
+            // > Action du bouton "Retour à la liste des sociétés  <
+            // > L'action du bouton appelle l'action "SocietesList" du contrôleur "Societe" <
+        }
+
+        @using (Html.BeginForm("SocietesList", "Societe", FormMethod.Get))
+        {
+
+            <button type="submit" class="text-center buttonList">Liste des sociétés</button>
+
+        }
+
+    </div>
+
+
+</body>

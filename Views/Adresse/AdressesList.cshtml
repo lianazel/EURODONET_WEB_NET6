@@ -1,0 +1,156 @@
+﻿
+
+@model EuroDonet.Model.Adresse.ML_DonetAdresseListVM
+
+@{
+    ViewBag.Title = "Liste des adresses";
+}
+
+
+<body>
+
+     @{
+        // > On déclare le fichier de style CSS   <
+    }
+    <link rel="stylesheet" href="~/css/styles.css" />
+
+
+   @{
+        // > On installe le jumbotron  <
+    }
+    <div class="jumbotron">
+        <br />
+         <h1 class="text-center">Les adresses</h1>
+         <br />
+    </div>
+
+
+    <br />
+    <br />
+    @{
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // ##                                                                         ##
+        // ##     > Cadrage à droite de la vue  (class="text-right")                  ##
+        // ##     > La classe "Lien_vue" crée un "INLINE-BLOCK dans lequel on...      ##
+        // ##       ...centre le texte du lien.                                       ##
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    }
+
+    <div>
+        @Html.ActionLink("Les sociétés", "SocietesList", "Societe", null, new { @class = "Lien_vue" })
+    </div>
+
+    <br />
+
+
+    <div class="container text-entete-list text-center">
+
+        @{
+            // > Création d'une table avec lignes de coouleurs différentes <
+        }
+
+        <table class="table table-striped table-responsive">
+
+            @{
+                // > Entête colonne  <
+            }
+
+            <thead class="thead-dark">
+                @{
+                    // > Ligne  <
+                }
+                <tr>
+                    @{
+                        // > Cellule avec bordure ("table-bordered")   <
+                    }
+                    <th class="table-bordered">Libellé adresse</th>
+
+
+                    @{
+                        // > Cellule avec bordure ("table-bordered")  <
+                    }
+                    <th class="table-bordered">Choisir une option</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @if (Model.ListAdresses != null)
+                {
+
+                    @foreach (var Adresse in Model.ListAdresses)
+                    {
+
+                        // Remarque : pas la peine d'insérer un @{} car on est déjà dans...
+                        // un code C#  avec un "@foreach
+
+                        // > On affiche en tant que lien le nom de l'imprimante <
+                        // > On passe en paramètre à l'action  "ImpGetDetail" du contrôleur "Imp" ...<
+                        // > ...le paramètre passé est l'ID de l'imprimante <
+
+                        // > Les balises <tr></tr> permettent de créer une ligne <
+
+                        <tr>
+                            @{
+                                // > Cellule 1   <
+                            }
+                            <th class="table-bordered">
+                                @Html.ActionLink(Adresse.LibelleAdresse, "AdresseGet", "Adresse",
+                                new { _IDAdresse = Adresse.Id_Adresse }, new { @class = "Description_Royal-Blue" })
+
+
+                            </th>
+
+                            @{
+                                // > Cellule 2 <
+                            }
+                            <th class="table-bordered text-center">
+
+
+                                @Html.ActionLink(" Modifier ", "AdresseGet", "Adresse",
+                             new { _IDAdresse = Adresse.Id_Adresse }, new { @class = "Option_Modifier" })
+
+                                                        
+                                    
+
+                            </th>
+                                                      
+
+                        </tr>
+
+
+
+                    }
+                }
+
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+    <br />
+    <br />
+
+     
+    <div class="container bg-light text-center">
+
+        @{
+            // > Bouton "Ajouter une adresse " :
+            //      Redirection vers la page "Ajouter une société " <
+            //     ActionLink("Texte du lien", "Nom_Méthode", "Nom_Contrôleur")
+        }
+
+        @using (Html.BeginForm("AdresseGet", "Adresse", FormMethod.Get))
+        {
+
+                <button type="submit" class="text-center buttonAdd">Ajouter une adresse</button>
+
+        }
+
+    </div>
+
+
+</body>
