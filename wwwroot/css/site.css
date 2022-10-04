@@ -1,0 +1,304 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+/* ------------------------------------------------  */
+/* Redéfinition de la classe bootstrap "jumbotron"   */
+/* ------------------------------------------------  */
+.jumbotron {
+    background-color: black;
+    color: coral;
+}
+
+/* ---------------------------------*/
+/* Badge ( Badge libellé champ )    */
+/* (centré au mileu de la page)     */
+/* ---------------------------------*/
+.ElementBadge {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    background-color: lightskyblue;
+    border-radius: 8px;
+    padding: 3px 8px;
+}
+
+/* ---------------------------------*/
+/* Badge DDL ( Drop Down List )     */
+/* (centré au mileu de la page)     */
+/* ---------------------------------*/
+.DDLBadge {
+    display: inline-block;
+    /* voir : https://stackoverflow.com/questions/4980525/css-center-display-inline-block */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    background-color: lightgreen;
+    border-radius: 8px;
+    padding: 3px 8px;
+}
+
+
+
+/* --------------------------------------*/
+/* Mis en forme du bouton AJOUTER (ADD)  */
+/* (centré au mileu de la page)          */
+/* --------------------------------------*/
+.buttonAdd {
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background: #2FB9FF;
+    padding: 10px 25px;
+    color: #ffffff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+    /* Le boutton devient vert lorsque la souris passe dessus */
+    .buttonAdd:hover {
+        background: #FFCC41;
+    }
+
+/* ---------------------------------*/
+/* Mis en forme du bouton VALIDER  */
+/* (centré au mileu de la page)    */
+/* --------------------------------*/
+.buttonValid {
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background: brown;
+    padding: 10px 25px;
+    color: #ffffff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+    /* Le boutton devient vert lorsque la souris passe dessus */
+    .buttonValid:hover {
+        background: green;
+    }
+
+/* ----------------------------------------------*/
+/* Mis en forme du bouton LISTE             .... */
+/*  Liste des adresses, liste des sociétés.    ..*/
+/* ----------------------------------------------*/
+/* (centré au mileu de la page)*/
+.buttonList {
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background: blue;
+    padding: 10px 25px;
+    color: #ffffff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+    /* Le boutton devient vert lorsque la souris passe dessus */
+    .buttonList:hover {
+        background: #ee9674;
+    }
+
+
+
+/* ---------------------------- */
+/* Style The Dropdown Button    */
+/* ---------------------------- */
+/* Voir : https://www.w3schools.com/Css/tryit.asp?filename=trycss_dropdown_navbar2*/
+.dropDownBtn {
+    background-color: #FE8E77;
+    color: white;
+    padding: 8px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center !important;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdowCenter {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    /*-ms-transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
+}
+
+/* ------------------------------------------------*/
+/*  *****            LIST      ******              */
+/* List ==> style pour le contenu des cellules     */
+/* ------------------------------------------------*/
+/* ==> Style associé aux données affichés dans le tableau ou la grille */
+.Nom_SlateBlue {
+    color: slateblue;
+    /* font-weight: bold;*/
+}
+
+
+/* ----------------------------*/
+/*  *****      LIST     ****** */
+/* List ==> Entête de colonne  */
+/* ----------------------------*/
+.text-entete-list {
+    background-color: grey;
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* --------------------------------------------------------------*/
+/*  *****                    LIST               ******           */
+/* Redéfinition Table-Striped                                    */
+/* ==> Modification couleur fond  ligne pair & impair tableau    */
+/* --------------------------------------------------------------*/
+/* ==> Changement couleur de fond ligne impair */
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: lightgoldenrodyellow;
+}
+
+/* ==> Changement couleur de fond ligne pair */
+.table-striped > tbody > tr:nth-child(2n+2) > td, .table-striped > tbody > tr:nth-child(2n+2) > th {
+    background-color: lightgray
+}
+
+/* --------------------------------------------------------------*/
+/*  *****                    LIST               ******           */
+/* Redéfinition Style Table                                      */
+/* ==> Modification  :                                           */
+/*     > épaisseur Cadre,                                        */
+/* --------------------------------------------------------------*/
+.table {
+    /* border: 1px solid ;*/
+    color: white;
+    background-color: mediumseagreen;
+}
+
+/* --------------------------------------------------*/
+/*  *****            LIST                     *****  */
+/* Style de l'option de la cellule "supprimer"       */
+/* --------------------------------------------------*/
+.Option_Supprimer {
+    /*- - - - - - - - - - - - - - - - - - - - - - - */
+    /* inline-block : crée un block autour du texte */
+    /*- - - - - - - - - - - - - - - - - - - - - - - */
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    background-color: #DD7835;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
+/* --------------------------------------------------*/
+/*  *****            LIST                     *****  */
+/* Style de l'option de la cellule "supprimer"       */
+/* --------------------------------------------------*/
+.Option_Modifier {
+    /*- - - - - - - - - - - - - - - - - - - - - - - */
+    /* inline-block : crée un block autour du texte */
+    /*- - - - - - - - - - - - - - - - - - - - - - - */
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    background-color: lightblue;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+
+.Lien_vue {
+    display: inline-block;
+    /* rappel : width ==> longueur ;*/
+    width: 250px;
+    font-size: 15px;
+    color: darkblue;
+    font-weight: bold;
+    background-color: lightskyblue;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+
+/* --------------------------------------  */
+/* **** Corps pages "Page Erreur" ****     */
+/* --------------------------------------  */
+.body-erreur {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: url("/wwwroot/img/Oups.jfif") no-repeat center center fixed;
+    overflow: hidden;
+}
+
+
+/* -------------------------------------------   */
+/* *** Pour cacher un champ, une zone ****       */
+/* -------------------------------------------   */
+.hidden {
+    display: none;
+}
+
+/* ----------------------------------------------  */
+/* ***  Corps pages "Page en Construction"  ***    */
+/* ----------------------------------------------  */
+body-page-construction {
+    
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+    url("../img/PAGE_EN_CONSTRUCTION.jpg");
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+        
+}
+
+
+/* --------------------------------------  */
+/* ***  Corps pages "Page Erreur" ***      */
+/* --------------------------------------  */
+.body-erreur {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: url("/wwwroot/img/Oups.jfif") no-repeat center center fixed;
+    overflow: hidden;
+}
